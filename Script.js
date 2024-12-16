@@ -1,11 +1,18 @@
-// Menangani event klik pada tombol untuk merubah teks
-document.getElementById('changeTextButton').addEventListener('click', function() {
-    const heading = document.querySelector('header h1');
-    heading.textContent = "Teks telah diubah setelah klik!";
+document.getElementById("changeColorBtn").addEventListener("click", function() {
+    // Mengganti warna latar belakang secara acak
+    const colors = ["#f4f4f4", "#ffcccb", "#d3f4f1", "#ffeb3b", "#ff5722"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
 });
 
-// Menangani pengiriman form
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Mencegah pengiriman form secara default
-    alert('Form telah dikirim. Terima kasih!');
+document.getElementById("userForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    if (name && email) {
+        alert(`Terima kasih, ${name}. Kami telah menerima formulir Anda!`);
+    } else {
+        alert("Harap isi semua field.");
+    }
 });
